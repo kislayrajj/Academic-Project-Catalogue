@@ -27,31 +27,31 @@ const LeftBar = () => {
   return (
     <div
       className={`bg-gradient-to-r from-cyan-500 to-blue-500 min-h-screen p-2 transition-all duration-300 overflow-hidden ${
-        barOpen ? "md:w-52 xl:w-64  " : "w-12"
+        barOpen ? "w-32 text-xs md:w-52 xl:w-64  " : "w-12"
       }`}>
       <div className="flex justify-end items-center relative">
         <Link to="/"><div className={`${
-          barOpen ? " absolute left-0 top-0 text-white text-lg" : "hidden"
+          barOpen ? "absolute left-0 top-0 text-white text-lg" : "hidden"
         }`}>Home</div></Link>
         <div
           title={barOpen ? "Close Menu" : "Open Menu"}
           onClick={handleBar}
           className="bg-white size-8 p-1 px-2 rounded-sm group hover:bg-cyan-600">
           {barOpen ? (
-            <i className="fa-solid fa-angles-left text-blue-600 group-hover:scale-125 group-hover:text-white transition-all duration-150 ease-in-out"></i>
+            <i className="fa-solid fa-angles-left text-blue-600 group-hover:scale-125 group-hover:text-white transition-all duration-150 ease-in-out text-base"></i>
           ) : (
-            <i className="fa-solid fa-angles-right text-blue-600 group-hover:scale-125 group-hover:text-white transition-all duration-150 ease-in-out"></i>
+            <i className="fa-solid fa-angles-right text-blue-600 group-hover:scale-125 group-hover:text-white transition-all duration-150 ease-in-out text-base"></i>
           )}
         </div>
       </div>
       <div
         className={` ${
           barOpen ? " " : "hidden"
-        }  flex h-full flex-col justify-center text-right px-12`}>
+        }  flex h-full flex-col md:justify-center text-right md:px-12 mt-5 md:-0`}>
         <div>
           {ProjectData?.map((data) => {
             return (
-              <div key={data.semester} className="text-white text-xl ">
+              <div key={data.semester} className="text-white text-xs md:text-xl">
                 <div
                   onClick={() => toggleSemester(data.semester)}
                   className={`border-2 border-transparent border-b-white rounded-br-lg  text-lg 
@@ -59,7 +59,7 @@ const LeftBar = () => {
                   !openSemester === data.semester
                     ? "hover:text-blue-600 hover:bg-gray-100 hover:rounded-br-sm"
                     : ""
-                } px-2 rounded-sm transition-all duration-100 ease-in-out cursor-pointer
+                } px-2 rounded-sm transition-all duration-100 text-sm md:text-xl ease-in-out cursor-pointer
                 `}>
                   {data?.semester}
                 </div>
@@ -71,7 +71,7 @@ const LeftBar = () => {
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.3 }}
                       className="subjects overflow-hidden">
-                      <div className="text-left text-gray-200 text-lg">
+                      <div className="text-left text-gray-200 text-xs md:text-lg">
                         Subs:
                       </div>
                       <div>
@@ -80,7 +80,7 @@ const LeftBar = () => {
                             <ul key={subject?.subject} className=" w-full">
                               <li
                                 onClick={() => toggleSubject(subject.subject)}
-                                className="text-lg  cursor-pointer xl:my-1 ">
+                                className="text-xs md:text-lg  cursor-pointer xl:my-1 ">
                                 <div
                                   className={`flex items-center  justify-between group ${
                                     openSubject === subject.subject
@@ -116,9 +116,9 @@ const LeftBar = () => {
                                         return (
                                           <div>
                                             <ul key={project?.id}>
-                                              <li className="text-base">
+                                              <li className="text-xs md:text-base">
                                               
-                                                  <Link to={project?.path}>{project?.id}</Link>
+                                                  <Link to={project?.path}>{project?.projectNumber}</Link>
                                                    
                                               </li>
                                             </ul>
