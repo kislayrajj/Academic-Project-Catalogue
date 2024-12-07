@@ -64,20 +64,21 @@ const Analysis_of_the_Iris_Dataset_R_proj_3 = () => {
               Functionalities
             </motion.div>
             <div>
-              {project?.functionalities?.map((functionality, idx) => {
-                return (
-                  <ul
-                    key={functionality}
-                    className="list-inside list-disc text-black mt-1">
+              <ul
+                className="list-inside list-disc text-black">
+                {project?.functionalities?.map((functionality, idx) => {
+                  return (
                     <motion.li
+                    key={functionality}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: idx * 0.4 }}>
+                      transition={{ duration: 0.5, delay: idx * 0.4 }}
+                      className=" mt-1">
                       {functionality}
                     </motion.li>
-                  </ul>
-                );
-              })}
+                  );
+                })}
+              </ul>
             </div>
           </div>
           <div>
@@ -88,7 +89,7 @@ const Analysis_of_the_Iris_Dataset_R_proj_3 = () => {
               className="font-semibold bg-blue-500 w-fit px-1 rounded-sm text-white">
               Additional Info
             </motion.div>
-            <ul className="mt-1">
+            <ul className="mt-1 flex flex-col gap-1.5">
               <motion.li
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

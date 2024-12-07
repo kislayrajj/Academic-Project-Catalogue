@@ -50,7 +50,11 @@ const TodoWithPython_proj_1 = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9 }}
           className="md:w-[600px] shadow-xl rounded-md overflow-hidden">
-          <img src={project.projectThumbnail} alt="Project thumbnail" className="object-cover" />
+          <img
+            src={project.projectThumbnail}
+            alt="Project thumbnail"
+            className="object-cover"
+          />
         </motion.div>
 
         {/* project functionality */}
@@ -64,20 +68,21 @@ const TodoWithPython_proj_1 = () => {
               Functionalities
             </motion.div>
             <div>
-              {project?.functionalities?.map((functionality, idx) => {
-                return (
-                  <ul
-                    key={functionality}
-                    className="list-inside list-disc text-black mt-1">
+              <ul
+                className="list-inside list-disc text-black">
+                {project?.functionalities?.map((functionality, idx) => {
+                  return (
                     <motion.li
+                    key={functionality}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: idx * 0.4 }}>
+                      transition={{ duration: 0.5, delay: idx * 0.4 }}
+                      className=" mt-1">
                       {functionality}
                     </motion.li>
-                  </ul>
-                );
-              })}
+                  );
+                })}
+              </ul>
             </div>
           </div>
           <div>
@@ -88,7 +93,7 @@ const TodoWithPython_proj_1 = () => {
               className="font-semibold bg-blue-500 w-fit px-1 rounded-sm text-white">
               Additional Info
             </motion.div>
-            <ul className="mt-1">
+            <ul className="mt-1 flex flex-col gap-1.5">
               <motion.li
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
