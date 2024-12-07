@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ProjectData from "../data/leftBarData/leftBarData";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
-const LeftBar = () => {
-  const [barOpen, setBarOpen] = useState(true);
+const LeftBar = ({ barOpen, setBarOpen }) => {
+  // const [barOpen, setBarOpen] = useState(true);
   const [openSemester, setOpenSemester] = useState(null);
   const [openSubject, setOpenSubject] = useState(null);
 
@@ -26,7 +26,7 @@ const LeftBar = () => {
   // console.log(ProjectData);
   return (
     <div
-      className={`bg-gradient-to-r from-cyan-500 to-blue-500 min-h-screen p-2 transition-all duration-300 overflow-hidden ${
+      className={`bg-gradient-to-r from-cyan-500 to-blue-500 h-screen p-2 transition-all duration-300 overflow-hidden fixed ${
         barOpen ? "w-32 text-xs md:w-52 xl:w-64  " : "w-12"
       }`}>
       <div className="flex justify-end items-center relative">

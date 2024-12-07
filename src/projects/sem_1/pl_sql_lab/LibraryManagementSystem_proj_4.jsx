@@ -50,7 +50,11 @@ const LibraryManagementSystem_proj_4 = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9 }}
           className="md:w-[600px] shadow-xl rounded-md overflow-hidden">
-          <img src={project.projectThumbnail} alt="Project thumbnail" className="object-cover" />
+          <img
+            src={project.projectThumbnail}
+            alt="Project thumbnail"
+            className="object-cover"
+          />
         </motion.div>
 
         {/* project functionality */}
@@ -64,12 +68,11 @@ const LibraryManagementSystem_proj_4 = () => {
               Functionalities
             </motion.div>
             <div>
-              <ul
-                className="list-inside list-disc text-black">
+              <ul className="list-inside list-disc text-black">
                 {project?.functionalities?.map((functionality, idx) => {
                   return (
                     <motion.li
-                    key={functionality}
+                      key={functionality}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: idx * 0.4 }}

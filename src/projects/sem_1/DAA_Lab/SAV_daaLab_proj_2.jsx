@@ -11,7 +11,7 @@ const SAV_daaLab_proj_2 = () => {
   console.log(project);
   console.log(project?.functionalities);
   return (
-    <div className="bg-gradient-to-r from-blue-200 to-cyan-200 h-screen p-2">
+    <div className="bg-gradient-to-r from-blue-200 to-cyan-200 min-h-screen p-2">
       <div className="flex flex-col justify-center items-center py-2 gap-2 md:gap-12">
         <div className="flex flex-wrap bg-gradient-to-r from-blue-800 to-indigo-900 justify-start md:gap-12 rounded-md overflow-hidden lg:h-24">
           <div className="flex flex-col justify-end font-semibold text-white p-2 text-xs md:text-base">
@@ -49,9 +49,13 @@ const SAV_daaLab_proj_2 = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9 }}
           className="md:w-[600px] shadow-xl rounded-md overflow-hidden">
-          <img src={project.projectThumbnail} alt="Project thumbnail" className="object-cover" />
+          <img
+            src={project.projectThumbnail}
+            alt="Project thumbnail"
+            className="object-cover"
+          />
         </motion.div>
-  
+
         {/* project functionality */}
         <div className="flex justify-between gap-5 md:gap-12 flex-wrap mt-2 text-xs md:text-base">
           <div className="flex flex-col gap-1">
@@ -63,12 +67,11 @@ const SAV_daaLab_proj_2 = () => {
               Functionalities
             </motion.div>
             <div>
-              <ul
-                className="list-inside list-disc text-black">
+              <ul className="list-inside list-disc text-black">
                 {project?.functionalities?.map((functionality, idx) => {
                   return (
                     <motion.li
-                    key={functionality}
+                      key={functionality}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: idx * 0.4 }}
@@ -123,14 +126,18 @@ const SAV_daaLab_proj_2 = () => {
                 transition={{ duration: 0.5, delay: 1.2 }}
                 className="">
                 <span className="font-medium md:font-semibold">Live Demo:</span>{" "}
-                {project?.liveDemo ? <a
-                  href={project?.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 underline"
-                  title="click to see live website">
-                  Live Demo
-                </a> : "NA" }
+                {project?.liveDemo ? (
+                  <a
+                    href={project?.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 underline"
+                    title="click to see live website">
+                    Live Demo
+                  </a>
+                ) : (
+                  "NA"
+                )}
               </motion.li>
               <motion.li
                 initial={{ opacity: 0, y: 20 }}
